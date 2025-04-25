@@ -21,3 +21,20 @@ def program_list(request):
     return render(request, 'program_list.html', {'programs': programs})
 
 
+def edit_program(request, program_id):
+    program = get_object_or_404(HealthProgram, id=program_id)
+    if request.method == 'POST':
+        form = HealthProgramForm(request.POST, instance=program)
+        if form.is_valid():
+            form.save()
+            return redirect('program_list')
+    else:
+        form = HealthProgramForm(instance=program)
+    return render(request, 'edit_program.html', {'form': form, 'program': program})
+
+
+def delete_program(request, program_id):
+    program = get_object_or_404(HealthProgram, id=program_id)
+    program.delete()
+    return redirect('program_list')
+
