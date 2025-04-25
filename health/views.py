@@ -50,3 +50,27 @@ def register_client(request):
         form = ClientForm()
 
     return render(request, 'register_client.html', {'form': form})
+
+
+def client_list(request):
+    clients = Client.objects.all()
+    return render(request, 'client_list.html', {'clients': clients})
+
+
+def edit_client(request, client_id):
+    client = get_object_or_404(Client, id=client_id)
+    if request.method == 'POST':
+        form = ClientForm(request.POST, instance=client)
+        if form.is_valid():
+            form.save()
+            return redirect('client_list')
+    else:
+        form = ClientForm(instance=client)
+    return render(request, 'register_client.html', {'form': form})
+
+
+def delete_client(request, client_id):
+    client = get_object_or_404(Client, id=client_id)
+    client.delete()
+    return redirect('client_list')
+
