@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
-from .models import HealthProgram
-from .forms import HealthProgramForm
+from .models import HealthProgram, Client
+from .forms import HealthProgramForm, ClientForm
 from django.shortcuts import get_object_or_404
 
 def create_program(request):
@@ -38,3 +38,15 @@ def delete_program(request, program_id):
     program.delete()
     return redirect('program_list')
 
+
+# Register client view
+def register_client(request):
+    if request.method == 'POST':
+        form = ClientForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('client_list')  # Redirect after successful registration
+    else:
+        form = ClientForm()
+
+    return render(request, 'register_client.html', {'form': form})
