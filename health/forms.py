@@ -23,3 +23,17 @@ class ClientForm(forms.ModelForm):
             'contact_number': forms.TextInput(attrs={'class': 'form-control'}),
             'address': forms.Textarea(attrs={'class': 'form-control', 'rows': 3}),
         }
+
+
+
+class EnrollClientForm(forms.ModelForm):
+    enrolled_programs = forms.ModelMultipleChoiceField(
+        queryset=HealthProgram.objects.all(),
+        widget=forms.CheckboxSelectMultiple,
+        required=True,
+        label="Select Programs to Enroll"
+    )
+
+    class Meta:
+        model = Client
+        fields = ['enrolled_programs']

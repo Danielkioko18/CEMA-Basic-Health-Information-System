@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from .models import HealthProgram, Client
-from .forms import HealthProgramForm, ClientForm
+from .forms import HealthProgramForm, ClientForm, EnrollClientForm
 from django.shortcuts import get_object_or_404
 
 def create_program(request):
@@ -73,4 +73,19 @@ def delete_client(request, client_id):
     client = get_object_or_404(Client, id=client_id)
     client.delete()
     return redirect('client_list')
+
+
+def enroll_client(request, client_id):
+    client = get_object_or_404(Client, id=client_id)
+
+    if request.method == 'POST':
+        form = EnrollClientForm(request.POST, instance=client)
+        if form.is_valid():
+            form.save()
+            return redirect('client_list')
+    else:
+        form = EnrollClientForm(instance=client)
+
+    return render(request, 'enroll_client.html', {'form': form, 'client': client})
+
 
