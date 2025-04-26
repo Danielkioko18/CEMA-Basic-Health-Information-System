@@ -14,7 +14,7 @@ urlpatterns = [
     path('clients/delete/<int:client_id>/', views.delete_client, name='delete_client'),
     path('clients/enroll/<int:client_id>/', views.enroll_client, name='enroll_client'),
     path('clients/profile/<int:client_id>/', views.client_profile, name='client_profile'),
-    path('api/clients/<int:client_id>/', views.client_profile_api, name='client_profile_api'),
+    path('api/client-profile/<int:client_id>/', views.client_profile_api, name='client_profile_api'),
     path('', auth_views.LoginView.as_view(template_name='login.html'), name='login'),
     path('logout/', auth_views.LogoutView.as_view(next_page='login'), name='logout'),
 ]

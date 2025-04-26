@@ -1,13 +1,13 @@
 # CEMA-Basic-Health-Information-System
 
-# Project Overview
+## Project Overview
 
 This is a simple Django-based Health Information System designed to manage clients and health programs.
 The system allows you to register clients, enroll them into health programs, and easily manage records through a clean, User Interface.
 
 It also features a public API endpoint to retrieve client profiles in JSON format.
 
-# Features
+## Features
 
 Register, edit, and delete clients.
 
@@ -27,7 +27,7 @@ UI built with Bootstrap.
 
 Application-level tests for reliability.
 
-# Technologies Used
+## Technologies Used
 
 Backend: Django (Python)
 
@@ -37,28 +37,28 @@ Database: SQLite (default for development)
 
 Other: Django REST Framework, Font Awesome
 
-# Installation Instructions 🚀
+## Installation Instructions 🚀
 
-1. Clone the Repository
+### 1. Clone the Repository
 
-2. Create a Virtual Environment
+### 2. Create a Virtual Environment
    in your system, navigate to the folder you would like to place the project in and run this commands
    python -m venv venv
 
-source venv/bin/activate  
-venv\Scripts\activate on windows
+    source venv/bin/activate  
+    venv\Scripts\activate on windows
 
-3. Install Dependencies
+### 3. Install Dependencies
    run this command
    pip install -r requirements.txt
 
-4. Create Superuser (Optional)
+### 4. Create Superuser (Optional)
    python manage.py runserver
 
-5. Run the Development Server
+### 5. Run the Development Server
    python manage.py runserver
 
-# API Usage 📡
+## API Usage 📡
 
 Get Client Profile API
 URL: /api/client-profile/<client_id>/
@@ -66,20 +66,56 @@ URL: /api/client-profile/<client_id>/
 Returns client data along with enrolled programs in JSON format.
 
 Example:
-GET http://127.0.0.1:8000/api/client-profile/3/
+GET http://127.0.0.1:8000/api/clients-profile/3/
 
-# List Of Programs
+## Prototype Demonstration using screenshots
+
+### Login Page
+
+![Login Page](image-4.png)
+
+### List Of Programs
 
 ![alt text](image.png)
 
-# List of Clients
+### List of Clients
 
-![alt text](image-1.png)
+![List Of clients](image-1.png)
 
-# Client Enrollment to Programs
+### Client Enrollment to Programs
 
-![alt text](image-2.png)
+![Enroll client page](image-8.png)
 
-# Client Profile with enrolled programs
+### Client Profile with enrolled programs
 
-![alt text](image-3.png)
+![view client profile](image-3.png)
+
+### Create Program
+
+![crete program page](image-5.png)
+
+### Register Client
+
+![register client page](image-6.png) 
+
+### Update client
+
+![update client page](image-7.png)
+
+### Search for a client in the client list
+
+![Search for client](image-9.png)
+
+![search for client](image-10.png)
+
+### Delete Client
+
+![delete client](image-11.png)
+
+### Delete Program
+
+![delete program](image-12.png)
+
+### API Exposing data for use by other systems in JSON format
+
+![API](image-13.png)
