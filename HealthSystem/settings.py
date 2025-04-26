@@ -123,8 +123,8 @@ USE_TZ = True
 
 LOGIN_REDIRECT_URL = 'program_list'  # URL to redirect after login
 LOGIN_URL = 'login'#If not logged in, redirect to login page
-
-
+LOGOUT_REDIRECT_URL = 'login'  # Where to go after logout
+LOGOUT_METHODS = ['GET', 'POST']  # ALLOW logout via GET request too
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 

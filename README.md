@@ -76,50 +76,50 @@ GET http://127.0.0.1:8000/api/clients-profile/3/
 
 ### Login Page
 
-![Login Page](image-4.png)
+![Login Page](demo/image-4.png)
 
 ### List Of Programs
 
-![alt text](image.png)
+![alt text](demo/image.png)
 
 ### List of Clients
 
-![List Of clients](image-1.png)
+![List Of clients](demo/image-1.png)
 
 ### Client Enrollment to Programs
 
-![Enroll client page](image-8.png)
+![Enroll client page](demo/image-8.png)
 
 ### Client Profile with enrolled programs
 
-![view client profile](image-3.png)
+![view client profile](demo/image-3.png)
 
 ### Create Program
 
-![crete program page](image-5.png)
+![crete program page](demo/image-5.png)
 
 ### Register Client
 
-![register client page](image-6.png) 
+![register client page](demo/image-6.png) 
 
 ### Update client
 
-![update client page](image-7.png)
+![update client page](demo/image-7.png)
 
 ### Search for a client in the client list
 
-![Search for client](image-9.png)
+![Search for client](demo/image-9.png)
 
 ![search for client](image-10.png)
 
 ### Delete Client
 
-![delete client](image-11.png)
+![delete client](demo/image-11.png)
 
 ### Delete Program
 
-![delete program](image-12.png)
+![delete program](demo/image-12.png)
 
 ### API Exposing data for use by other systems in JSON format
 
-![API](image-13.png)
+![API](demo/image-13.png)
