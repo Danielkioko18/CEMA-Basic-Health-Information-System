@@ -14,7 +14,7 @@
         .navbar {
             background-color: #0077cc;
         }
-        .nav-links a {
+        a {
             color: white;
             margin-left: 15px;
             text-decoration: none;
@@ -39,20 +39,17 @@
                         <span class="navbar-text">Welcome, {{ user.username }}</span>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{% url 'create_program' %}">Create Program</a>
+                        <a class="nav-link text-warning" href="{% url 'create_program' %}">Programs</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{% url "register_client" %}">Register Client</a>
+                        <a class="nav-link text-warning" href="{% url "register_client" %}">Clients</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Client Profiles</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{% url 'admin:logout' %}">Logout</a>
+                        <a class="nav-link text-warning" href="{% url 'admin:logout' %}">Logout</a>
                     </li>
                 {% else %}
                     <li class="nav-item">
-                        <a class="nav-link" href="{% url 'admin:login' %}">Login</a>
+                        <a class="nav-link text-warning" href="{% url 'admin:login' %}">Login</a>
                     </li>
                 {% endif %}
             </ul>

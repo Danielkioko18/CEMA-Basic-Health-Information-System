@@ -4,6 +4,7 @@ from django.db import models
 class HealthProgram(models.Model):
     name = models.CharField(max_length=100, unique=True)
     description = models.TextField(blank=True)
+    created_at = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
         return self.name
@@ -18,6 +19,7 @@ class Client(models.Model):
     gender = models.CharField(max_length=1, choices=gender_choices)
     contact_number = models.CharField(max_length=15, blank=True)
     address = models.TextField(blank=True)
+    created_at = models.DateTimeField(auto_now_add=True)
     enrolled_programs = models.ManyToManyField(HealthProgram, blank=True)
 
     def __str__(self):

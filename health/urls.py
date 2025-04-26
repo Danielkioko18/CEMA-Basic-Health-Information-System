@@ -1,6 +1,7 @@
 from django.urls import path
 from . import views
 
+#Navigation URLS
 urlpatterns = [
     path('create-program/', views.create_program, name='create_program'),
     path('programs/', views.program_list, name='program_list'),

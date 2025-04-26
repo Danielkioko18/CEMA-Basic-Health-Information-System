@@ -1,5 +1,5 @@
 {% extends 'base.html' %}
-
+<!--List of programs-->
 {% block content %}
 <div class="container mt-4">
     <h2 class="mb-4">Health Programs</h2>
@@ -8,6 +8,7 @@
     <table class="table table-striped">
         <thead>
             <tr>
+                <th>#</th>
                 <th>Name</th>
                 <th>Description</th>
                 <th>Actions</th>
@@ -16,6 +17,7 @@
         <tbody>
             {% for program in programs %}
             <tr>
+                <td>{{ forloop.counter }}</td>
                 <td>{{ program.name }}</td>
                 <td>{{ program.description }}</td>
                 <td>
