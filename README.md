@@ -55,7 +55,7 @@ Other: Django REST Framework, Font Awesome
 
     pip install -r requirements.txt
 
-### 4. Create Superuser (Optional)
+### 4. Create Superuser
     python manage.py createsuperuser
 
 ### 5. Run the Development Server
