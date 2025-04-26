@@ -73,17 +73,19 @@ def client_list(request):
 
     return render(request, 'client_list.html', {'clients': clients, 'query': query})
 
-#Edit Clients
+# Edit Clients
 def edit_client(request, client_id):
     client = get_object_or_404(Client, id=client_id)
     if request.method == 'POST':
         form = ClientForm(request.POST, instance=client)
         if form.is_valid():
             form.save()
-            return redirect('client_list')# redirect to client list after successful update
+            return redirect('client_list')  # redirect to client list after successful update
     else:
         form = ClientForm(instance=client)
-    return render(request, 'register_client.html', {'form': form})
+    
+    return render(request, 'register_client.html', {'form': form, 'is_edit': True})
+
 
 # delete client from the list
 def delete_client(request, client_id):

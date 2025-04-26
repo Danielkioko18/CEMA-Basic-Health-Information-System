@@ -17,7 +17,12 @@
         <div class="col-md-8 col-lg-6">
             <div class="card shadow-sm">
                 <div class="card-header bg-primary text-white">
-                    <h4 class="mb-0">Register New Client</h4>
+                    {% if is_edit %}
+                    <h4 class="mb-0">Update Client</h4>
+                    {% else %}
+                        <h4 class="mb-0">Register New Client</h4>
+                    {% endif %}
+
                 </div>
                 <div class="card-body">
                     <form method="post">
@@ -47,7 +52,13 @@
                             {{ form.address }}
                         </div>
                         <div class="d-grid">
-                            <button type="submit" class="btn btn-primary">Register Client</button>
+                            <button type="submit" class="btn btn-primary">
+                                {% if is_edit %}
+                                    Update Client
+                                {% else %}
+                                    Register Client
+                                {% endif %}
+                            </button>
                         </div>
                     </form>
                 </div>
