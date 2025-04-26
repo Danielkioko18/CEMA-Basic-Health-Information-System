@@ -3,6 +3,9 @@ from .models import HealthProgram, Client
 from .forms import HealthProgramForm, ClientForm, EnrollClientForm
 from django.shortcuts import get_object_or_404
 from django.db.models import Q
+from rest_framework.response import Response
+from rest_framework.decorators import api_view
+from .serializers import ClientProfileSerializer
 
 def create_program(request):
     if request.method == 'POST':
@@ -67,11 +70,6 @@ def client_list(request):
     return render(request, 'client_list.html', {'clients': clients, 'query': query})
 
 
-'''def client_list(request):
-    clients = Client.objects.all()
-    return render(request, 'client_list.html', {'clients': clients})'''
-
-
 def edit_client(request, client_id):
     client = get_object_or_404(Client, id=client_id)
     if request.method == 'POST':
@@ -107,3 +105,10 @@ def enroll_client(request, client_id):
 def client_profile(request, client_id):
     client = get_object_or_404(Client, id=client_id)
     return render(request, 'client_profile.html', {'client': client})
+
+
+@api_view(['GET'])
+def client_profile_api(request, client_id):
+    client = get_object_or_404(Client, id=client_id)
+    serializer = ClientProfileSerializer(client)
+    return Response(serializer.data, content_type='application/json')

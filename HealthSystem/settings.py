@@ -37,7 +37,6 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    #'rest_framework',
     'health',
 ]
 
@@ -82,15 +81,13 @@ DATABASES = {
     }
 }
 
-# Rest API configuration
-'''REST_FRAMEWORK = {
+# Rest API configuration to expose client details for other systems in json format
+REST_FRAMEWORK = {
     'DEFAULT_RENDERER_CLASSES': [
         'rest_framework.renderers.JSONRenderer',
-    ],
-    'DEFAULT_PARSER_CLASSES': [
-        'rest_framework.parsers.JSONParser',
     ]
-}'''
+}
+
 
 
 # Password validation
