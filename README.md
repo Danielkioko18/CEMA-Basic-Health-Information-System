@@ -42,25 +42,29 @@ Other: Django REST Framework, Font Awesome
 ### 1. Clone the Repository
 
 ### 2. Create a Virtual Environment
-   in your system, navigate to the folder you would like to place the project in and run this commands
-   python -m venv venv
+   In your system, navigate to the folder you would like to place the project in and run this commands
+   
+    python -m venv venv
 
     source venv/bin/activate  
+
     venv\Scripts\activate on windows
 
 ### 3. Install Dependencies
    run this command
-   pip install -r requirements.txt
+
+    pip install -r requirements.txt
 
 ### 4. Create Superuser (Optional)
-   python manage.py runserver
+    python manage.py runserver
 
 ### 5. Run the Development Server
-   python manage.py runserver
+    python manage.py runserver
 
 ## API Usage 📡
 
 Get Client Profile API
+
 URL: /api/client-profile/<client_id>/
 
 Returns client data along with enrolled programs in JSON format.
