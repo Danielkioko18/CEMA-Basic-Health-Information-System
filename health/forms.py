@@ -1,6 +1,7 @@
 from django import forms
 from .models import HealthProgram, Client
 
+# Create Program form
 class HealthProgramForm(forms.ModelForm):
     class Meta:
         model = HealthProgram
@@ -11,6 +12,7 @@ class HealthProgramForm(forms.ModelForm):
         }
 
 
+# Register client form
 class ClientForm(forms.ModelForm):
     class Meta:
         model = Client
@@ -25,7 +27,7 @@ class ClientForm(forms.ModelForm):
         }
 
 
-
+# Form for enrolling a client to programs
 class EnrollClientForm(forms.ModelForm):
     enrolled_programs = forms.ModelMultipleChoiceField(
         queryset=HealthProgram.objects.all(),

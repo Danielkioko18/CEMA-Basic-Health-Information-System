@@ -121,6 +121,10 @@ USE_I18N = True
 USE_TZ = True
 
 
+LOGIN_REDIRECT_URL = 'program_list'  # URL to redirect after login
+LOGIN_URL = 'login'#If not logged in, redirect to login page
+
+
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 

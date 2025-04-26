@@ -7,8 +7,10 @@ from rest_framework.response import Response
 from rest_framework.decorators import api_view
 from .serializers import ClientProfileSerializer
 from django.contrib import messages
+from django.contrib.auth.decorators import login_required
 
 #Create a program view
+@login_required
 def create_program(request):
     if request.method == 'POST':
         form = HealthProgramForm(request.POST)
@@ -23,11 +25,13 @@ def create_program(request):
     return render(request, 'create_program.html', {'form': form})
 
 # view the programs created in a  list
+@login_required
 def program_list(request):
     programs = HealthProgram.objects.all()
     return render(request, 'program_list.html', {'programs': programs})
 
 # Edit the program details
+@login_required
 def edit_program(request, program_id):
     program = get_object_or_404(HealthProgram, id=program_id)
     if request.method == 'POST':
@@ -47,6 +51,7 @@ def delete_program(request, program_id):
 
 
 # Register client view
+@login_required
 def register_client(request):
     if request.method == 'POST':
         form = ClientForm(request.POST)
@@ -60,6 +65,7 @@ def register_client(request):
     return render(request, 'register_client.html', {'form': form})
 
 # Client list view
+@login_required
 def client_list(request):
     query = request.GET.get('q')
     if query:
@@ -74,6 +80,7 @@ def client_list(request):
     return render(request, 'client_list.html', {'clients': clients, 'query': query})
 
 # Edit Clients
+@login_required
 def edit_client(request, client_id):
     client = get_object_or_404(Client, id=client_id)
     if request.method == 'POST':
@@ -94,6 +101,7 @@ def delete_client(request, client_id):
     return redirect('client_list')
 
 # enroll a regiistered client to programs
+@login_required
 def enroll_client(request, client_id):
     client = get_object_or_404(Client, id=client_id)
 
@@ -108,6 +116,7 @@ def enroll_client(request, client_id):
     return render(request, 'enroll_client.html', {'form': form, 'client': client})
 
 # Client's profile view
+@login_required
 def client_profile(request, client_id):
     client = get_object_or_404(Client, id=client_id)
     return render(request, 'client_profile.html', {'client': client})
