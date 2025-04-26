@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect
 from .models import HealthProgram, Client
 from .forms import HealthProgramForm, ClientForm, EnrollClientForm
 from django.shortcuts import get_object_or_404
+from django.db.models import Q
 
 def create_program(request):
     if request.method == 'POST':
@@ -53,8 +54,22 @@ def register_client(request):
 
 
 def client_list(request):
+    query = request.GET.get('q')
+    if query:
+        clients = Client.objects.filter(
+            Q(first_name__icontains=query) |
+            Q(last_name__icontains=query) |
+            Q(contact_number__icontains=query)
+        )
+    else:
+        clients = Client.objects.all()
+
+    return render(request, 'client_list.html', {'clients': clients, 'query': query})
+
+
+'''def client_list(request):
     clients = Client.objects.all()
-    return render(request, 'client_list.html', {'clients': clients})
+    return render(request, 'client_list.html', {'clients': clients})'''
 
 
 def edit_client(request, client_id):
@@ -89,3 +104,6 @@ def enroll_client(request, client_id):
     return render(request, 'enroll_client.html', {'form': form, 'client': client})
 
 
+def client_profile(request, client_id):
+    client = get_object_or_404(Client, id=client_id)
+    return render(request, 'client_profile.html', {'client': client})

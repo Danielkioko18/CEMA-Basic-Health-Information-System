@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container mt-5">
+    <div class="card shadow-sm">
+        <div class="card-header bg-primary text-white">
+            <h4>Client Profile: {{ client.first_name }} {{ client.last_name }}</h4>
+        </div>
+        <div class="card-body">
+            <p><strong>DOB:</strong> {{ client.date_of_birth }}</p>
+            <p><strong>Phone:</strong> {{ client.contact_number }}</p>
+            <p><strong>Gender:</strong> {{ client.gender }}</p>
+            <p><strong>Address:</strong> {{ client.address }}</p>
+
+            <h5 class="mt-4"><strong>Enrolled Programs:</strong></h5>
+            <ul>
+                {% for program in client.enrolled_programs.all %}
+                    <li class="text-primary"><b>{{ program.name }}</b></li>
+                {% empty %}
+                    <li class="text-danger"><b>This client is not enrolled in any programs.</b></li>
+                {% endfor %}
+            </ul>
+
+            <a href="{% url 'client_list' %}" class="btn btn-secondary mt-3">Back to Client List</a>
+        </div>
+    </div>
+</div>
+{% endblock %}
